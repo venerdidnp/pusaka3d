@@ -1,0 +1,6 @@
+# Kunci versinya setelah install: pip freeze | grep -iE "numpy|pillow|pytest"
+numpy
+pillow
+pytest
+
+numpy>=2.0.0
