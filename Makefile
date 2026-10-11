@@ -1,32 +1,15 @@
-.PHONY: data test help clean
+PY ?= python3
 
-help:
-	@echo "Available targets:"
-	@echo "  make data - Generate dataset images"
-	@echo "  make test - Run tests"
-	@echo "  make clean - Remove generated data"
-	@echo "  make budget - Show budget calculations"
-	@echo "  make metrics - Test metrics module"
+.PHONY: data test report clean
 
 data:
-	@echo "Generating dataset..."
-	python3 make_data.py
+	$(PY) make_data.py
 
 test:
-	@echo "Running tests..."
-	python3 -m pytest tests/ -v
+	$(PY) -m pytest -q
 
-budget:
-	python3 budget.py --set data/
-
-metrics:
-	python3 metrics.py
+report:
+	$(PY) report.py
 
 clean:
-	@echo "Cleaning..."
-	rm -rf data/*
-	@echo "Done"
-
-data-stats:
-	@echo "Data directory contents:"
-	ls -lah data/
+	rm -rf data report __pycache__ .pytest_cache
