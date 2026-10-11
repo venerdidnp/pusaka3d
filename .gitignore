@@ -9,5 +9,6 @@ venv/
 data/*.ppm
 data/*.pgm
 report/*.ppm
+LAB1_FIX.md
 PLAN.md
 LAB1_TASK.md
