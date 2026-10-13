@@ -9,5 +9,9 @@ venv/
 data/*.ppm
 data/*.pgm
 report/*.ppm
+pusaka3d_alat_lab1/
+report/bukti/
+report/*
 PLAN.md
 LAB1_TASK.md
+LAB2_TUTOR.md
