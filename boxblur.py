@@ -5,7 +5,7 @@ def box_blur_2x2(img):
     a = np.asarray(img, dtype=np.float64)
     t, l = a.shape[0], a.shape[1]
     a = a[:t // 2 * 2, :l // 2 * 2]     # potong pinggir ganjil
-    return a.reshape(t // 2, 2, l // 2, 2).mean(axis=(1, 3))   # rata per blok
+    return a.reshape(t // 2, 2, l // 2, 2, *a.shape[2:]).mean(axis=(1, 3))   # rata per blok
 
 
 def box_blur_3x3(img):
