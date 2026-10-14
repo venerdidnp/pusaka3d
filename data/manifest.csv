@@ -1,22 +1,16 @@
 filename,W,H,byte_on_disk,format,deskripsi
-checker.ppm,256,256,196623,PPM,
-crop_hifreq.ppm,128,128,49167,PPM,
-crop_smooth.ppm,128,128,49167,PPM,
-gradient.ppm,256,256,196623,PPM,
-relief.ppm,256,256,196623,PPM,
-relief_cool.ppm,256,256,196623,PPM,
-relief_crop_br.ppm,128,128,49167,PPM,
-relief_crop_tl.ppm,128,128,49167,PPM,
-relief_flip_h.ppm,256,256,196623,PPM,
-relief_flip_v.ppm,256,256,196623,PPM,
-relief_rot180.ppm,256,256,196623,PPM,
-relief_rot22.ppm,256,256,196623,PPM,
-relief_rot270.ppm,256,256,196623,PPM,
-relief_rot90.ppm,256,256,196623,PPM,
-relief_sepia.ppm,256,256,196623,PPM,
-relief_shift_diag.ppm,256,256,196623,PPM,
-relief_shift_x.ppm,256,256,196623,PPM,
-relief_shift_y.ppm,256,256,196623,PPM,
-silhouette.ppm,256,256,196623,PPM,
-silhouette_dusk.ppm,256,256,196623,PPM,
-sky.ppm,256,256,196623,PPM,
+01_fasad_bebatuan_candi.jpg,3264,2448,3569391,JPEG,"Fasad dengan susunan batu candi. Asli: 2018-09-24_07.22.02_1_prambanan_temple.jpg. Foto: Megaasilvia, CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:2018-09-24_07.22.02_1_prambanan_temple.jpg"
+02_langit_berawan_pagi.jpg,6000,3376,1874008,JPEG,"Langit berawan pagi dengan candi. Asli: A_Good_Morning_in_Prambanan_Temple.jpg. Foto: Aditya Prabaswara, CC BY 2.0, https://commons.wikimedia.org/wiki/File:A_Good_Morning_in_Prambanan_Temple.jpg"
+03_fasad_tangga_pintu.jpg,3696,3888,5801033,JPEG,"Fasad dengan tangga dan pintu candi. Asli: Candi_Pambanan_2024.jpg. Foto: Abieomar, CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:Candi_Pambanan_2024.jpg"
+04_lebar_kompleks_rumput.jpg,3598,2699,3861632,JPEG,"Pemandangan lebar kompleks dari tenggara pagi hari. Asli: Candi_Prambanan_-_001_General_View_from_South-East_in_Morning_(12042795564).jpg. Foto: Photo Dharma from Penang, Malaysia, CC BY 2.0, https://commons.wikimedia.org/wiki/File:Candi_Prambanan_-_001_General_View_from_South-East_in_Morning_(12042795564).jpg"
+05_fasad_jajaran_candi.jpg,4212,2369,3430636,JPEG,"Fasad jajaran candi dari tenggara pagi hari. Asli: Candi_Prambanan_-_002_Close-up_View_from_South-East_in_Morning_(12042390795).jpg. Foto: Photo Dharma from Penang, Malaysia, CC BY 2.0, https://commons.wikimedia.org/wiki/File:Candi_Prambanan_-_002_Close-up_View_from_South-East_in_Morning_(12042390795).jpg"
+06_fasad_empat_candi.jpg,4252,3149,5116541,JPEG,"Empat candi dilihat dari jalan masuk. Asli: Candi_Prambanan_-_003_View_from_Approach_Road_(12042379875).jpg. Foto: Photo Dharma from Penang, Malaysia, CC BY 2.0, https://commons.wikimedia.org/wiki/File:Candi_Prambanan_-_003_View_from_Approach_Road_(12042379875).jpg"
+07_fasad_tiga_candi.jpg,4320,3240,5288247,JPEG,"Tiga candi dilihat dari jalan masuk. Asli: Candi_Prambanan_-_004_View_from_Approach_Road_(12042752644).jpg. Foto: Photo Dharma from Penang, Malaysia, CC BY 2.0, https://commons.wikimedia.org/wiki/File:Candi_Prambanan_-_004_View_from_Approach_Road_(12042752644).jpg"
+08_daun_semak_hijau.jpg,2448,3264,1470937,JPEG,"Semak hijau dekat candi. Asli: Candi_Prambanan_-_Kompleks_Candi_Prambanan_1.jpg. Foto: Indonesiagood, CC BY 4.0, https://commons.wikimedia.org/wiki/File:Candi_Prambanan_-_Kompleks_Candi_Prambanan_1.jpg"
+09_fasad_tangga_batu.jpg,3120,3120,1066906,JPEG,"Fasad dengan tangga batu. Asli: Candi_Prambanan_-_Kompleks_Candi_Prambanan_18.jpg. Foto: Indonesiagood, CC BY 4.0, https://commons.wikimedia.org/wiki/File:Candi_Prambanan_-_Kompleks_Candi_Prambanan_18.jpg"
+10_relief_dinding_batu.jpg,3120,3120,1573356,JPEG,"Relief pada dinding batu. Asli: Candi_Prambanan_-_Kompleks_Candi_Prambanan_23.jpg. Foto: Indonesiagood, CC BY 4.0, https://commons.wikimedia.org/wiki/File:Candi_Prambanan_-_Kompleks_Candi_Prambanan_23.jpg"
+11_relief_hiasan_dinding.jpg,3120,3120,950482,JPEG,"Relief hiasan dinding candi. Asli: Candi_Prambanan_-_Kompleks_Candi_Prambanan_25.jpg. Foto: Indonesiagood, CC BY 4.0, https://commons.wikimedia.org/wiki/File:Candi_Prambanan_-_Kompleks_Candi_Prambanan_25.jpg"
+12_daun_pohon_rimbun.jpg,3264,2448,1568170,JPEG,"Pohon rimbun dekat candi. Asli: Candi_Prambanan_-_Kompleks_Candi_Prambanan_5.jpg. Foto: Indonesiagood, CC BY 4.0, https://commons.wikimedia.org/wiki/File:Candi_Prambanan_-_Kompleks_Candi_Prambanan_5.jpg"
+13_lebar_kompleks_candi.jpg,3120,3120,934260,JPEG,"Pemandangan lebar kompleks candi. Asli: Candi_Prambanan_-_Kompleks_Candi_Prambanan_50.jpg. Foto: Indonesiagood, CC BY 4.0, https://commons.wikimedia.org/wiki/File:Candi_Prambanan_-_Kompleks_Candi_Prambanan_50.jpg"
+14_langit_siluet_matahari.jpg,3120,4160,1357942,JPEG,"Siluet candi dengan matahari di langit. Asli: Keindahan_Prambanan.jpg. Foto: Fauzanfithra, CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:Keindahan_Prambanan.jpg"
+15_fasad_bangunan_candi.jpg,3120,3120,1085181,JPEG,"Fasad bangunan candi. Asli: Candi_Prambanan_-_Kompleks_Candi_Prambanan_8.jpg. Foto: Indonesiagood, CC BY 4.0, https://commons.wikimedia.org/wiki/File:Candi_Prambanan_-_Kompleks_Candi_Prambanan_8.jpg"
