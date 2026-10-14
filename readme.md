@@ -35,16 +35,10 @@ pusaka3d/
 ├── srgb.py                     # Encode/decode sRGB - linear (Lab 2)
 ├── tugas3.py, tugas5.py        # Tugas 3 dan 5 Lab 2
 ├── data/
-│   ├── foto/                   # Foto Wikimedia Commons (di-#ignore)
-│   ├── commons_list.txt        # Daftar foto Commons
+│   ├── commons_list.txt        # Daftar foto Commons (di-#ignore)
 │   └── manifest.csv            # Manifest foto (W, H, size, format, deskripsi)
 ├── report/
-│   └── # hasil Laporan PDF #generated# (dibangkitkan dari report.py)
-├── skrip/                      # Dokumen tugas/dosen
-│   ├── LAB1_PHOTO.md
-│   ├── LAB1_TASK.md
-│   ├── LAB2_START.md
-│   └── PLAN.md
+│   └── # hasil laporan (dibangkitkan dari report.py)
 └── tests/
     └── # Tes berdasarkan nilai acuan modul (setiap modul embedded)
 ```
