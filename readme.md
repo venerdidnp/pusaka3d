@@ -99,9 +99,3 @@ make report              # Bangkitkan laporan format markdown
 
 - Jangkauan: Venerdi (S1 Informatika, Universitas Muhammadiyah Surabaya)
 - Penilaian: Kode, laporan, dan viva lisan (menjelaskan commit sendiri)
-
-## Referensi
-
-- Matematika: Linear algebra, Gamma correction, Color spaces, Filters
-- Format: PPM/PGM (binary), CSV manifest, Wikimedia Commons API
-- Dosen: Modul PDF Lab 1 dan Lab 2 (Module1_ID.pdf, Module2_ID.pdf)
