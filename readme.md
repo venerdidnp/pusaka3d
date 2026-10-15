@@ -88,16 +88,8 @@ make report              # Bangkitkan laporan format markdown
 | Pillow | 12.3.0 (hanya untuk encode JPG/PNG/WebP/AVIF) |
 | pytest | 9.1.1 |
 
-**Dokumentasi developer**: Lihat `CLAUDE.md` untuk instruksi spesifik pada Claude Code.
 
 ## Lisensi Pemilik
 
-- Jangkauan: Venerdi (S1 Informatika, UM Surabaya)
+- Jangkauan: Venerdi (S1 Informatika, Universitas Muhammadiyah Surabaya)
 - Penilaian: Kode, laporan, dan viva lisan (menjelaskan commit sendiri)
-- Kontribusi AI: Claude Code membantu scaffolding, review, debugging - bukan menulis inti
-
-## Referensi
-
-- Matematika: Linear algebra, Gamma correction, Color spaces, Filters
-- Format: PPM/PGM (binary), CSV manifest, Wikimedia Commons API
-- Dosen: Modul PDF Lab 1 dan Lab 2 (Module1_ID.pdf, Module2_ID.pdf)
