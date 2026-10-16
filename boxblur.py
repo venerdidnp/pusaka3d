@@ -11,7 +11,7 @@ def box_blur_2x2(img):
 def box_blur_3x3(img):
     a = np.asarray(img, dtype=np.float64)
     t, l = a.shape[0], a.shape[1]
-    total = np.zeros((t - 2, l - 2))
+    total = np.zeros((t - 2, l - 2) + a.shape[2:])
     for dy in range(3):
         for dx in range(3):
             total += a[dy : dy + t - 2, dx : dx + l - 2]

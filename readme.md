@@ -1,95 +1,99 @@
-# pusaka3d: Pengolahan Citra Dari Nol
+# pusaka3d — Praktikum Grafika Komputer, Modul 1
 
-Laboratorium Grafika Komputer (S1 Informatika, UM Surabaya, Lab 1 dan Lab 2)
+Representasi digital, warna, dan memori: citra dibangun dari nol dengan NumPy
+(tanpa OpenCV/skimage untuk bagian inti). Dikerjakan oleh Venerdi, S1 Informatika,
+Universitas Muhammadiyah Surabaya.
 
-## Deskripsi
+Laporan terstruktur dikumpulkan terpisah dari repositori ini.
 
-Proyek ini membangun alat pengolahan citra dari nol menggunakan **hanya NumPy**, tanpa pustaka pencitraan seperti OpenCV atau Pillow. Mencakup:
+## Setup
 
-- **Lab 1**: Pengaturan toolchain, pembengkakan data sintetis, perhitungan budget memori/bandwidth, dan pengunduh foto Wikimedia Commons dengan manifest CSV
-- **Lab 2**: Konversi sRGB/linear, histogram, box blur, resampling (nearest/bilinear), luma RGB-Grey, konversi warna RGB, dan bug resizing gamma-correct
+Python 3.11, NumPy, Pillow, pytest, matplotlib.
 
-## Struktur Project
-
-```
-pusaka3d/
-├── Makefile                    # Pipeline: data, test, report, clean
-├── requirements.txt            # numpy==2.4.6, pillow==12.3.0, pytest==9.1.1
-├── CLAUDE.md                   # Instruksi khusus untuk Claude Code
-├── README.md                   # Dokumen ini
-├── audit_foto.py              # Verifikasi foto (Lab 1)
-├── boxblur.py                  # Box blur 2x2 dan 3x3 (Lab 2)
-├── budget.py                   # Hitung byte, MB/MiB, bandwidth, mip chain (Lab 1)
-├── check_env.py                # Verifikasi lingkungan
-├── copy_over.py                # Helper copy (Lab 2)
-├── decode_vs_disk.py           # Konfirmasikan kata sandi valid (Lab 1)
-├── fetch_meta.py               # Verifikasi metadata Commons (Lab 1)
-├── gamma_resize_bug.py         # Contoh bug resizing gamma-correct (Lab 2)
-├── histogram.py                # Hitung histogram citra (Lab 2)
-├── luma.py                     # RGB ke Grey dengan Rec.709 (Lab 2)
-├── make_data.py                # Bangkitkan data sintetis deterministik (Lab 1)
-├── make_manifest.py            # Isi manifest.csv dengan W, H, size, format (Lab 1)
-├── metrics.py                  # PSNR dan SSIM global (Lab 2)
-├── ppm_io.py                   # Baca/tulis format PPM/PGM (Lab 1)
-├── resample.py                 # Resample nearest/bilinear (Lab 2)
-├── srgb.py                     # Encode/decode sRGB - linear (Lab 2)
-├── tugas3.py, tugas5.py        # Tugas 3 dan 5 Lab 2
-├── data/
-│   ├── commons_list.txt        # Daftar foto Commons (di-#ignore)
-│   └── manifest.csv            # Manifest foto (W, H, size, format, deskripsi)
-├── report/
-│   └── # hasil laporan (dibangkitkan dari report.py)
-└── tests/
-    └── # Tes berdasarkan nilai acuan modul (setiap modul embedded)
-```
-
-## Cara Penggunaan
-
-```bash
-# 1. Install dependensi
+```powershell
+python -m venv venv
+venv\Scripts\Activate.ps1
 pip install -r requirements.txt
-
-# Lab 1
-make data                # Bangkitkan data sintetis (PPM/PGM test)
-python fetch_commons.py  # Unduh foto Commons (isi terlebih dahulu data/commons_list.txt)
-python make_manifest.py  # Isi manifest.csv
-python budget.py --manifest data/manifest.csv
-python audit_foto.py     # Verifikasi foto yang diunduh
-
-# Lab 2 (tulis modul sendiri di srgb.py, histogram.py, etc.)
-make test                # Jalankan tes (di `tests/`)
-
-# Laporan (optional)
-make report              # Bangkitkan laporan format markdown
 ```
 
-## Nilai Acuan Tes
+Kalau `make` tidak ada, jalankan skrip Python-nya langsung. Kalau `python` tidak
+dikenali, pakai `make PY=python3 ...`.
 
-| Tes | Nilai Acuan |
-|-----|-------------|
-| Patch E1 8x8 (histogram kotak) | Mean = 54 |
-| Box blur 2x2 E1 | Blok 4x4 `[[6,22,38,54],[22,38,54,70],...]` |
-| Nearest 2x E1 | Nilai dasar `aij` seperti lab modul |
-| Bilinear 1-D `[0,100]` pada 0.25, 0.5, 0.75 | Hasil 25, 50, 75 |
-| `numpy.histogram` vs Anda | Max error = 0 |
-| Luma RGB (200,100,50) | Benar ~126, Rec.709 = 118, rata-rata = 117 |
-| HSV RGB (200,100,50) | ~ (20°, 0.75, 0.78) |
-| Blend 50/50 hitam-putih | Naif 128, benar ~188 (kurva sRGB), ~180 (gamma-2) |
-| Budget 1920x1080 RGB888 | 6,220,800 B per frame, klip 10 s 30 fps = 1,866,240,000 B |
-| Atlas 4096x4096 RGBA8 | 64 MiB, dengan mip ~85.3 MiB |
-| Waktu per frame (FPS) | 24 Hz: 41.7 ms, 60 Hz: 16.7 ms, 120 Hz: 8.3 ms, 144 Hz: 6.9 ms |
+## Perintah cepat
 
-## Toolchain
+| Perintah        | Fungsi                                                 |
+| --------------- | ------------------------------------------------------ |
+| `make data`     | Bangkitkan citra sintetis ke `data/*.ppm`              |
+| `make manifest` | Bangun `data/manifest.csv` dari `data/foto/`           |
+| `make budget`   | Hitung anggaran memori dari manifest                   |
+| `make test`     | Jalankan seluruh tes (`pytest tests -q`)               |
+| `make report`   | Bangkitkan `report/budget.md` dan `report/report.html` |
+| `make clean`    | Hapus cache saja                                       |
 
-| Komponen | Versi |
-|----------|-------|
-| Python | 3.x |
-| NumPy | 2.4.6 |
-| Pillow | 12.3.0 (hanya untuk encode JPG/PNG/WebP/AVIF) |
-| pytest | 9.1.1 |
+## Data foto
 
+15 foto Candi Prambanan dari Wikimedia Commons, disimpan di `data/foto/`
+(tidak di-commit karena besar). Atribusi dan lisensi tiap foto ada di kolom
+`deskripsi` pada `data/manifest.csv`; pemetaan nama berkas ke judul Commons ada
+di `data/sumber_foto.csv`. Foto bisa diunduh ulang dari judul tersebut.
 
-## Lisensi Pemilik
+## Langkah pengerjaan
 
-- Jangkauan: Venerdi (S1 Informatika, Universitas Muhammadiyah Surabaya)
-- Penilaian: Kode, laporan, dan viva lisan (menjelaskan commit sendiri)
+### Lab 1 — Alat, data, dan anggaran memori
+
+1. `python check_env.py` mencatat toolchain ke `report/lab1_toolchain.md`.
+2. Kumpulkan foto ke `data/foto/`, lalu `python audit_foto.py` memeriksa resolusi
+   dan kelayakan.
+3. `python make_manifest.py` membuat `data/manifest.csv`;
+   `python fetch_meta.py` mengisi kolom `deskripsi` dari API Commons
+   (ada jeda dan retry untuk HTTP 429; `--paksa` mengisi ulang).
+4. `python contact_sheet.py` membuat lembar kontak
+   `report/bukti/kontak_foto.jpg`.
+5. `python budget.py --manifest data/manifest.csv` menghitung byte hasil decode
+   (W×H×3), working set, dan skenario flythrough 10 detik @ 30 fps ke
+   `report/lab1_budget.md`.
+6. `python decode_vs_disk.py <3 berkas>` membandingkan ukuran decode dengan ukuran
+   di disk ke `report/lab1_decode_vs_disk.md`.
+7. `make data` membangkitkan citra sintetis (`make_data.py`), dengan pembaca/penulis
+   PPM di `ppm_io.py` dan metrik MSE/PSNR/SSIM di `metrics.py`.
+
+### Lab 2 — Warna, resampling, dan aliasing (kode inti dari nol)
+
+| Berkas                                | Isi                                                     |
+| ------------------------------------- | ------------------------------------------------------- |
+| `srgb.py`                             | Konversi sRGB ke linear dan sebaliknya                  |
+| `histogram.py`                        | Histogram dengan loop                                   |
+| `boxblur.py`                          | Box blur 2×2 dan 3×3                                    |
+| `resample.py`                         | Nearest dan bilinear (pusat piksel)                     |
+| `luma.py`                             | Greyscale Rec.709 di ruang linear                       |
+| `tugas3.py`                           | Gradien terkuantisasi, lebar pita (banding), dithering  |
+| `tugas5.py`                           | Sinyal chirp, aliasing, efek pre-filter                 |
+| `gamma_resize_bug.py`                 | Downscale naif (pada kode sRGB) vs benar (linear)       |
+| `bukti_gamma.py`, `plot_histogram.py` | Bukti visual dan histogram bug gamma ke `report/bukti/` |
+
+Catatan: `gamma_resize_bug.py` ditulis sendiri karena berkas dari instruktur tidak
+diberikan.
+
+Tes: `tests/test_lab2.py`.
+
+### Lab 3 — Format berkas dan simulasi CVD
+
+1. `python format_compare.py <foto> --box X Y UKURAN --label <nama>` membandingkan
+   JPEG (q40/75/92), PNG, WebP (lossless dan q80), dan AVIF q50 lewat ukuran
+   berkas, rasio, dan PSNR. Hasil ke `report/lab3_formats_<label>.md`.
+2. `python baseline.py` membandingkan downscale naif, Pillow BOX, dan versi benar.
+3. `cvd.py` mensimulasikan protanopia dan deuteranopia (matriks Machado 2009 di
+   ruang linear); tes di `tests/test_cvd.py`.
+4. `make report` merangkai tabel dan gambar menjadi `report/report.html`.
+
+## Tes
+
+```powershell
+python -m pytest tests -q
+```
+
+## Pembagian peran
+
+Kode inti Lab 2 (srgb, histogram, boxblur, resample, luma, cvd, tugas3, tugas5,
+diagnosis gamma) dan seluruh teks laporan ditulis sendiri. Alat bantu, tes, dan
+skrip bukti dibuat dengan bantuan asisten AI. Detailnya di `CLAUDE.md`.

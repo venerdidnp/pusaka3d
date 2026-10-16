@@ -10,12 +10,9 @@ data/*.ppm
 data/*.pgm
 data/*.jpg
 data/*.txt
-report/*.ppm
-skrip/*.md
-pusaka3d_alat_lab1/
-report/bukti/
-report/*
-PLAN.md
-LAB1_TASK.md
-LAB2_TUTOR.md
 data/foto/
+report/*.ppm
+report/report.html
+pusaka3d_alat_lab1/
+skrip/
+report/*.md
