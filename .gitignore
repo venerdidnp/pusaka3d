@@ -4,6 +4,8 @@ __pycache__/
 .venv/
 venv/
 .DS_Store
+report/bukti
+bukti/
 
 # dibangkitkan oleh make data / make report
 data/*.ppm
